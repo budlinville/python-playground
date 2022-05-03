@@ -78,11 +78,24 @@ print(f'Finished in {t2-t1} seconds')
 
 t1 = time.perf_counter()
 
+""" Event Loop
+"""
+
 # Asyncio is how you start the event loop
 # In javascript this is a runtime feature so no need to import... just run as usual
 loop = asyncio.get_event_loop()
 loop.run_until_complete(download_images_async())
 loop.close()
+
+""" Event loop abstraction
+"""
+# asyncio.run(download_images_async())
+
+""" Using tasks
+"""
+# async def foo():
+#     task = asyncio.create_task(download_images_async())
+#     await task
 
 t2 = time.perf_counter()
 print(f'Finished in {t2-t1} seconds')
